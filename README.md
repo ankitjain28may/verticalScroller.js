@@ -33,6 +33,11 @@ npm install autoscroll.js
 ```
 bower install autoscroll.js
 ```
+##Using github 
+
+You can download zip from https://github.com/ankitjain28may/autoscroll.js/archive/master.zip and doing instruction in How To use Auto Scroll block
+
+
 
 
 #General Notes
