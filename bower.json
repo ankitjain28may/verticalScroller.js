@@ -1,11 +1,11 @@
 {
-  "name": "autoscroll.js",
+  "name": "autoscroll.ctoicqtao.js",
   "version": "1.0.1",
   "description": "Auto Scroll is a Jquery plugin which is used to auto-scroll your content smoothly. It is less than 1KB when minified.",
-  "main": "autoscroll.js",
+  "main": "autoscroll.ctoicqtao.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ankitjain28may/autoscroll.js.git"
+    "url": "https://github.com/ctoicqtao/autoscroll.js.git"
   },
   "keywords": [
     "jquery-plugin",
