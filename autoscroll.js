@@ -7,7 +7,7 @@
 // add return value to make that users can clear Interval
 (function( $ ){
    $.fn.scroller = function(options) {
-        var s;//define return value
+        var ret;//define return value
         options = options || '{"delay" : 2000 ,"amount" : 100 }';
         options = JSON.parse(options);
         this.each(function () {
