@@ -70,7 +70,7 @@ Note: element can be id or class or any html tag
 ## Add your options
 you optionally can set the scroll direction with `horizontal` or `vertical` in direction argument
 ```
-{"amount" : 200 , "delay" : 1500, "direction" : "horizontal" }
+{"amount" : 200 , "delay" : 1500 , "direction" : "horizontal" }
 ```
 
 # Example

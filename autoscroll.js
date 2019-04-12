@@ -6,7 +6,7 @@
 // jQuery Function scroller
 (function( $ ){
    $.fn.scroller = function(options) {
-        options = options || '{"delay" : 2000 ,"amount" : 100, "direction" : "vertical" }';
+        options = options || '{"delay" : 2000, "amount" : 100, "direction" : "vertical" }';
         options = JSON.parse(options);
         this.each(function () {
             this.delay = parseInt(options["delay"]) || 2000;
@@ -25,7 +25,6 @@
 
             var self = this;
             this.timerId = setInterval(function () {
-                console.log(self.direction);
                 var animatePropKey = self.direction === "vertical" ? "scrollTop" : "scrollLeft";
                 if(self.iScrollInitial+self.iSize < self.iScrollSize)
                 {
