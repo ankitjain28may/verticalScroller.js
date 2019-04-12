@@ -64,12 +64,13 @@ Note: element can be id or class or any html tag
 
 ## Default options
 ```
-{"amount" : 100 , "delay" : 2000 } //2000ms and 100px
+{"amount" : 100 , "delay" : 2000, "direction" : "vertical" } //2000ms ,100px and vertical direction.
 ```
 
 ## Add your options
+you optionally can set the scroll direction with `horizontal` or `vertical` in direction argument
 ```
-{"amount" : 200 , "delay" : 1500 }
+{"amount" : 200 , "delay" : 1500 , "direction" : "horizontal" }
 ```
 
 # Example

@@ -6,34 +6,40 @@
 // jQuery Function scroller
 (function( $ ){
    $.fn.scroller = function(options) {
-        options = options || '{"delay" : 2000 ,"amount" : 100 }';
+        options = options || '{"delay" : 2000, "amount" : 100, "direction" : "vertical" }';
         options = JSON.parse(options);
         this.each(function () {
             this.delay = parseInt(options["delay"]) || 2000;
             this.amount = parseInt(options["amount"]) || 100;
+            this.direction = options["direction"] || "vertical";
             this.autoScroll = $(this);
-            this.iScrollHeight = this.autoScroll.prop("scrollHeight");
-            this.iScrollTop = this.autoScroll.prop("scrollTop");
-            this.iHeight = this.autoScroll.height();
+            this.iScrollSize = this.direction === "vertical"
+                ? this.autoScroll.prop("scrollHeight")
+                : this.autoScroll.prop("scrollWidth");
+            this.iScrollInitial = this.direction === "vertical"
+                ? this.autoScroll.prop("scrollTop")
+                : this.autoScroll.prop("scrollLeft");
+            this.iSize = this.direction === "vertical"
+                ? this.autoScroll.height()
+                : this.autoScroll.width();
 
             var self = this;
             this.timerId = setInterval(function () {
-                if(self.iScrollTop+self.iHeight < self.iScrollHeight)
+                var animatePropKey = self.direction === "vertical" ? "scrollTop" : "scrollLeft";
+                if(self.iScrollInitial+self.iSize < self.iScrollSize)
                 {
-                    self.iScrollTop = self.autoScroll.prop("scrollTop");
-                    self.iScrollTop+=self.amount;
-                    self.autoScroll.animate(
-                        {scrollTop: self.iScrollTop},
-                        "slow",
-                        "linear");
+                    self.iScrollInitial = self.autoScroll.prop(animatePropKey);
+                    self.iScrollInitial+=self.amount;
+                    var animateProp = {};
+                    animateProp[animatePropKey] = self.iScrollInitial;
+                    self.autoScroll.animate(animateProp, "slow", "linear");
                 }
                 else
                 {
-                    self.iScrollTop-=self.iScrollTop;
-                    self.autoScroll.animate(
-                        {scrollTop: "0px"},
-                        "fast",
-                        "swing");
+                    self.iScrollInitial-=self.iScrollInitial;
+                    var animateProp = {};
+                    animateProp[animatePropKey] = "0px";
+                    self.autoScroll.animate(animateProp, "fast", "swing");
                 }
             }, self.delay);
         });
